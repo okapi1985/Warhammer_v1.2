@@ -3,21 +3,22 @@ package regiment;
 import armies.generalModel.Model;
 
 import java.util.Map;
+import java.util.TreeMap;
 
-class Rank {
+public class Rank {
 
-    private Map<Integer, Model> rank;
+    private TreeMap<Integer, Model> rankMap;
 
-    public Rank(Map<Integer, Model> rank) {
-        this.rank = rank;
+    public Rank(TreeMap<Integer, Model> rankMap) {
+        this.rankMap = rankMap;
     }
 
-    public Map<Integer, Model> getRank() {
-        return rank;
+    public TreeMap<Integer, Model> getRankMap() {
+        return rankMap;
     }
 
-    public void setRank(Map<Integer, Model> rank) {
-        this.rank = rank;
+    public void setRankMap(TreeMap<Integer, Model> rankMap) {
+        this.rankMap = rankMap;
     }
 
     @Override
