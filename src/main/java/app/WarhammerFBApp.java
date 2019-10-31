@@ -32,7 +32,6 @@ public class WarhammerFBApp {
         formation.printUnit(clanratUnit, clanratRank,'X');
 
         clanratUnit.getUnitMap().get(4).getRankMap().pollLastEntry();
-        System.out.println();
 
         formation.printUnit(clanratUnit, clanratRank,'X');
 
