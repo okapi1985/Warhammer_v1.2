@@ -1,31 +1,30 @@
 package regiment;
 
-import java.util.Map;
+import armies.generalModel.Model;
+
 import java.util.TreeMap;
 
 public class Unit {
 
-    Rank rank;
-
-    private TreeMap<Integer,Rank> unitMap;
+    private TreeMap<Integer,TreeMap<Integer, Model>> unitMap;
     private boolean musician;
     private boolean standardBearer;
 
-    public Unit(TreeMap<Integer, Rank> unitMap, boolean musician, boolean standardBearer) {
+    public Unit(TreeMap<Integer, TreeMap<Integer, Model>> unitMap, boolean musician, boolean standardBearer) {
         this.unitMap = unitMap;
         this.musician = musician;
         this.standardBearer = standardBearer;
     }
 
-    public Unit(TreeMap<Integer, Rank> unitMap) {
+    public Unit(TreeMap<Integer, TreeMap<Integer, Model>> unitMap) {
         this.unitMap = unitMap;
     }
 
-    public TreeMap<Integer, Rank> getUnitMap() {
+    public TreeMap<Integer, TreeMap<Integer, Model>> getUnitMap() {
         return unitMap;
     }
 
-    public void setUnitMap(TreeMap<Integer, Rank> unitMap) {
+    public void setUnitMap(TreeMap<Integer, TreeMap<Integer, Model>> unitMap) {
         this.unitMap = unitMap;
     }
 

@@ -7,33 +7,28 @@ import java.util.TreeMap;
 
 public class FormationMethods {
 
-
-    public Rank createRank(Model model, int rankSize){
-        TreeMap<Integer,Model> rankMap = new TreeMap<>();
-        Rank rank = new Rank(rankMap);
-        for (int i=0;i<rankSize;i++){
-            rankMap.put(i,model);
-        }
-        return rank;
-    }
-
-    public Unit createUnit(Rank rank, int ranksNumber){
-        TreeMap<Integer,Rank> unitMap = new TreeMap<>();
+    public Unit createUnit(Model model, int ranksNumber, int rankSize){
+        TreeMap<Integer,Model> rank = new TreeMap<>();
+        TreeMap<Integer, TreeMap<Integer,Model>> unitMap = new TreeMap<>();
         Unit unit = new Unit(unitMap);
-        for (int i=0;i<ranksNumber;i++){
-            unitMap.put(i,rank);
+        for (int j=0;j<ranksNumber;j++) {
+            for (int i = 0; i < rankSize; i++) {
+                rank.put(i, model);
+            }
+            unitMap.put(j,new TreeMap<>(rank));
         }
         return unit;
     }
 
-    public void printUnit(Unit unit, Rank rank, char single){
-        int rankAmount = unit.getUnitMap().size();
-        int rankSize = rank.getRankMap().size();
-        for (int i = 0; i < rankAmount; i++){
-            for (int j = 0; j < rankSize; j++){
-                System.out.print(single+" ");
-            }
-            System.out.println();
+    public void printUnit(Unit unit){
+        for (Map.Entry<Integer,TreeMap<Integer,Model>> entry: unit.getUnitMap().entrySet()){
+            System.out.println(entry.getValue());
         }
+    }
+
+    public void removeModel(Unit unit){
+        int lastRank = unit.getUnitMap().size()-1;
+        TreeMap<Integer,Model> rank = unit.getUnitMap().get(lastRank);
+        rank.pollLastEntry();
     }
 }

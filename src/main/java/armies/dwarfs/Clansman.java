@@ -10,6 +10,8 @@ public class Clansman extends Model {
     private boolean greatWeapon;
     private boolean shield;
 
+    private String single = "X";
+
     public Clansman(String name, int movement, int weaponSkill, int ballisticSkill, int strength, int toughness,
                     int wounds, int initiative, int attack, int leadership, int unitStrength, int save, int points,
                     boolean handWeapon, boolean lightArmour, boolean heavyArmour, boolean greatWeapon, boolean shield) {
@@ -76,13 +78,6 @@ public class Clansman extends Model {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Clansman{");
-        sb.append("handWeapon=").append(handWeapon);
-        sb.append(", lightArmour=").append(lightArmour);
-        sb.append(", heavyArmour=").append(heavyArmour);
-        sb.append(", greatWeapon=").append(greatWeapon);
-        sb.append(", shield=").append(shield);
-        sb.append('}');
-        return sb.toString();
+        return single;
     }
 }

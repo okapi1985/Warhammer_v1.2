@@ -4,7 +4,6 @@ import armies.dwarfs.Clansman;
 import armies.generalModel.Model;
 import armies.skaven.Clanrat;
 import regiment.FormationMethods;
-import regiment.Rank;
 import regiment.Unit;
 
 public class WarhammerFBApp {
@@ -21,19 +20,22 @@ public class WarhammerFBApp {
 
         FormationMethods formation = new FormationMethods();
 
-        Rank clansmanRank = formation.createRank(clansman,5);
-        Unit clansmanUnit = formation.createUnit(clansmanRank,2);
-        formation.printUnit(clansmanUnit, clansmanRank,'O');
+        Unit clansmanUnit = formation.createUnit(clansman,4,5);
+        formation.printUnit(clansmanUnit);
+        formation.removeModel(clansmanUnit);
+        formation.removeModel(clansmanUnit);
 
         System.out.println();
 
-        Rank clanratRank = formation.createRank(clanrat,6);
-        Unit clanratUnit = formation.createUnit(clanratRank,5);
-        formation.printUnit(clanratUnit, clanratRank,'X');
+        Unit clanratUnit = formation.createUnit(clanrat,5,6);
+        formation.printUnit(clanratUnit);
+        formation.removeModel(clanratUnit);
 
-        clanratUnit.getUnitMap().get(4).getRankMap().pollLastEntry();
+        System.out.println();
 
-        formation.printUnit(clanratUnit, clanratRank,'X');
+        formation.printUnit(clansmanUnit);
+        System.out.println();
+        formation.printUnit(clanratUnit);
 
 
     }
