@@ -36,6 +36,9 @@ public abstract class Model {
         this.points = points;
     }
 
+    public Model() {
+    }
+
     public String getName() {
         return name;
     }
@@ -144,4 +147,5 @@ public abstract class Model {
     public String toString() {
         return name;
     }
+
 }

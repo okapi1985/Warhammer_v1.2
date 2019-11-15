@@ -4,7 +4,7 @@ import armies.generalModel.Model;
 
 import java.util.TreeMap;
 
-public class Unit {
+public class Unit implements Comparable<Unit> {
 
     private TreeMap<Integer,TreeMap<Integer, Model>> unitMap;
     private boolean musician;
@@ -46,13 +46,14 @@ public class Unit {
 
     @Override
     public String toString() {
-//            for (int i = 0; i < unit.size(); i++){
-//                for (int j = 0; j <rank.getRank().size(); j++){
-//                    System.out.print("O ");
-//                }
-//                System.out.println();
-//            }
-//
         return "";
+    }
+
+    @Override
+    public int compareTo(Unit o) {
+        if (this.getUnitMap().get(0).get(0).getInitiative() < o.getUnitMap().get(0).get(0).getInitiative()){
+            return -1;
+        } else
+        return 1;
     }
 }

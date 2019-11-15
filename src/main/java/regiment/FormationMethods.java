@@ -2,23 +2,27 @@ package regiment;
 
 import armies.generalModel.Model;
 
+import java.io.PrintStream;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class FormationMethods {
 
-    public Unit createUnit(Model model, int ranksNumber, int rankSize){
-        TreeMap<Integer,Model> rank = new TreeMap<>();
-        TreeMap<Integer, TreeMap<Integer,Model>> unitMap = new TreeMap<>();
+    PrintStream out = System.out;
+
+    public Unit createUnit(Model model, int ranksNumber, int rankSize) {
+        TreeMap<Integer, Model> rank = new TreeMap<>();
+        TreeMap<Integer, TreeMap<Integer, Model>> unitMap = new TreeMap<>();
         Unit unit = new Unit(unitMap);
-        for (int j=0;j<ranksNumber;j++) {
+        for (int j = 0; j < ranksNumber; j++) {
             for (int i = 0; i < rankSize; i++) {
                 rank.put(i, model);
+                }
+                unitMap.put(j, new TreeMap<>(rank));
             }
-            unitMap.put(j,new TreeMap<>(rank));
+            return unit;
         }
-        return unit;
-    }
+
 
     public void printUnit(Unit unit){
         for (Map.Entry<Integer,TreeMap<Integer,Model>> entry: unit.getUnitMap().entrySet()){
